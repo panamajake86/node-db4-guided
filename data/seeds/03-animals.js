@@ -1,6 +1,6 @@
 
 exports.seed = function(knex, Promise) {
-  return knex('animals').insert([
+  return knex('animal').insert([
     // species_id must match valid species
     { animal_name: "Snuffles", species_id: 1 },
     { animal_name: "Cornelius", species_id: 2 },
