@@ -4,7 +4,7 @@ exports.up = function (knex) {
         .createTable('zoo', tbl => {
             tbl.increments();
             tbl.string('zoo_name', 128).notNullable();
-            tbl.string('address', 128).notNullable().unique();
+            tbl.string('address', 128).notNullable();
         }))
         .createTable('species', tbl => {
             tbl.increments();
@@ -33,7 +33,7 @@ exports.up = function (knex) {
                 .references('animal.id')
                 .onDelete('CASCADE')
                 .onUpdate('CASCADE');
-            tbl.primary('zoo_id', 'animal_id');
+            tbl.primary(['zoo_id', 'animal_id']);
         });
 };
 
